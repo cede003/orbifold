@@ -38,7 +38,9 @@ class BFS:
     
     def __init__(self, matrix: Matrix):
         self.matrix = matrix
-        self.directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        # 8-directional movement: up, down, left, right, and 4 diagonals
+        self.directions = [(-1, 0), (1, 0), (0, -1), (0, 1),  # cardinal directions
+                          (-1, -1), (-1, 1), (1, -1), (1, 1)]  # diagonal directions
     
     def find_shortest_path(self, start: Tuple[int, int], end: Tuple[int, int]) -> Optional[List[Tuple[int, int]]]:
         if not self.matrix.is_valid_cell(start[0], start[1]):
